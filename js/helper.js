@@ -26,7 +26,7 @@ var HTMLlocation = '<li class="flex-item"><em class="theme-text">location</em><p
 var HTMLbioPic = '<img class="biopic" src="%data%" alt="%alt%">';
 var HTMLwelcomeMsg = '<p class="welcome-message">%data%</p>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
+var HTMLskillsStart = '<h3 class="skills-title">Skills at a Glance:</h3><ul id="skills" class="flex-column"></ul>';
 var HTMLskills = '<li class="flex-item white-text">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
@@ -71,7 +71,7 @@ var googleMap = '<div id="map"></div>';
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
 */
-/*
+
 $(document).ready(function() {
   $('button').click(function() {
     var $name = $('#name');
@@ -79,7 +79,7 @@ $(document).ready(function() {
     $name.html(iName);
   });
 });
-*/
+
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in the lesson Flow Control from JavaScript Basics.
 */
@@ -111,6 +111,97 @@ var map;    // declares a global map variable
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
+/* added this part ================================================================================================================================================== */
+  var styledMapType = new google.maps.StyledMapType(
+  [
+    {
+      elementType: 'geometry',
+      stylers: [{color: '#f5f5f5'}]
+    },
+    {
+      elementType: 'labels.icon',
+      stylers: [{visibility: 'off'}]
+    },
+    {
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#616161'}]
+    },
+    {
+      elementType: 'labels.text.stroke',
+      stylers: [{color: '#f5f5f5'}]
+    },
+    {
+      featureType: 'administrative.land_parcel',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#bdbdbd'}]
+    },
+    {
+      featureType: 'poi',
+      elementType: 'geometry',
+      stylers: [{color: '#eeeeee'}]
+    },
+    {
+      featureType: 'poi',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#757575'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'geometry',
+      stylers: [{color: '#e5e5e5'}]
+    },
+    {
+      featureType: 'poi.park',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#9e9e9e'}]
+    },
+    {
+      featureType: 'road',
+      elementType: 'geometry',
+      stylers: [{color: '#ffffff'}]
+    },
+    {
+      featureType: 'road.arterial',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#757575'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'geometry',
+      stylers: [{color: '#dadada'}]
+    },
+    {
+      featureType: 'road.highway',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#616161'}]
+    },
+    {
+      featureType: 'road.local',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#9e9e9e'}]
+    },
+    {
+      featureType: 'transit.line',
+      elementType: 'geometry',
+      stylers: [{color: '#e5e5e5'}]
+    },
+    {
+      featureType: 'transit.station',
+      elementType: 'geometry',
+      stylers: [{color: '#eeeeee'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'geometry',
+      stylers: [{color: '#c9c9c9'}]
+    },
+    {
+      featureType: 'water',
+      elementType: 'labels.text.fill',
+      stylers: [{color: '#9e9e9e'}]
+    }
+  ],
+  {name: 'Styled Map'});
 
   var locations;
 
@@ -122,7 +213,20 @@ function initializeMap() {
   For the map to be displayed, the googleMap var must be
   appended to #mapDiv in resumeBuilder.js.
   */
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  //map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  /* added this part ==================================================================================================================================================== */
+  //var melbourne = {lat: -37.816678, lng: 144.961550};
+  map = new google.maps.Map(document.querySelector('#map'), { //new
+      mapTypeControlOptions: {
+        mapTypeIds: ['roadmap', 'styled_map'],
+      }
+    });
+
+  //=====================================================================================================================================================================
+
+  // Added this part Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('styled_map', styledMapType);
+  map.setMapTypeId('styled_map');
 
 
   /*
@@ -134,6 +238,7 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
+    var boxInfo =[];
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
 
@@ -173,19 +278,21 @@ function initializeMap() {
     var marker = new google.maps.Marker({
       map: map,
       position: placeData.geometry.location,
-      title: name
+      title: name,
     });
 
     // infoWindows are the little helper windows that open when you click
     // or hover over a pin on a map. They usually contain more information
     // about a location.
+    var boxContent = '<p>My locations!</p>';
     var infoWindow = new google.maps.InfoWindow({
-      content: name
+      content: name + boxContent
+
     });
 
     // hmmmm, I wonder what this is about...
-    google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.open(map, marker); // added this
     });
 
     // this is where the pin actually gets added to the map.

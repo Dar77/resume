@@ -1,3 +1,13 @@
+// Hello.
+//
+// This is JSHint, a tool that helps to detect errors and potential
+// problems in your JavaScript code.
+//
+// To start, simply enter some JavaScript anywhere on this page. Your
+// report will appear on the right side.
+//
+// Additionally, you can toggle specific options in the Configure
+// menu.
 /*
 resumeBuilder.js - resume project - Darren Ware
  */
@@ -11,7 +21,7 @@ var bio = { //bio object
 	 	'github': 'Dar77',
 	 	'location': 'Australia',
 	},
-	'welcomeMessage': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab similique in eaque, asperiores, expli.',
+	'welcomeMessage': 'Placeholder text applauded no discovery in newspaper allowance am northward.',
 	'skills': ['HTML', 'CSS', 'Javascript', 'Design'],
 	'biopic': 'images/bio-pic-2.jpg'
 };
@@ -19,28 +29,28 @@ var bio = { //bio object
 var education = { // education object
  	'schools': [
  		{
- 			'name': 'Southampton City College',
- 			'location': 'Southampton UK',
- 			'degree': 'BTEC Dental Technology',
- 			'majors': ['Dental Technology', 'Crown and Bridge'],
+ 			'name': 'Brighton City College',
+ 			'location': 'Brighton VIC',
+ 			'degree': 'Graphic Design',
+ 			'majors': ['Graphic Design'],
  			'dates': '2000-2004',
- 			'url': ' http://southampton.com'
+ 			'url': ' http://brighton.com'
  		},
  		{
- 			'name': 'Kingston University',
- 			'location': 'Kingston UK',
- 			'degree': 'BTEC Foundation Art & Design',
+ 			'name': 'Melbourne University',
+ 			'location': 'Melbourne VIC',
+ 			'degree': 'Foundation Art & Design',
  			'majors': ['Graphic Design', 'Art and Design', '3D Design'],
  			'dates': '1997-1998',
- 			'url': ' http://kingston.com'
+ 			'url': ' http://melbourne.com'
  		},
  		{
- 			'name': 'Spelthorne College',
- 			'location': 'Ashford UK',
- 			'degree': 'A-level',
+ 			'name': 'Essendon College',
+ 			'location': 'Essendon VIC',
+ 			'degree': 'Another Course',
  			'majors': ['Graphic Design'],
  			'dates': '1993-1996',
- 			'url': ' http://spelthorne.com'
+ 			'url': ' http://essendon.com'
  		}
  	],
 
@@ -54,7 +64,7 @@ var education = { // education object
  		{
  			'title': 'HTML Basics',
  			'school': 'Another School',
- 			'dates': '2017',
+ 			'dates': '2016',
  			'url': ' https://www.anotherschool.com'
  		}
  	]
@@ -67,7 +77,7 @@ var work = { // work object
 	 		'title': 'Developer',
 	 		'location': 'Melbourne VIC',
 	 		'dates': '2012-present',
-	 		'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit quam modi sed, ullam veniam vero ea aliquam aut, magni dolorem voluptates tenetur officia optio. Sint amet, voluptatibus nobis animi dolores!'
+	 		'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.'
 
 	    },
 	    {
@@ -75,7 +85,7 @@ var work = { // work object
 	 		'title': 'UX design',
 	 		'location': 'Geelong VIC',
 	 		'dates': '2010-2012',
-	 		'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur quaerat assumenda et eius, quam sapiente provident placeat, odio obcaecati, earum sequi id perspiciatis nihil aperiam accusantium reiciendis voluptates doloribus nam!'
+	 		'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.'
 
 	    },
 	    {
@@ -83,7 +93,7 @@ var work = { // work object
 	 		'title': 'Web Developer',
 	 		'location': 'Perth WA',
 	 		'dates': '2007-2010',
-	 		'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit quaerat amet harum doloribus praesentium, sed facere rerum labore obcaecati natus, cum accusamus odio, possimus ut aliquid, ad libero dolores. Numquam.'
+	 		'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.'
 	    }
  	]
 
@@ -94,7 +104,7 @@ var projects = { // projects object
  		{
  			'title': 'Project Example 1',
  			'dates': '2016-2017',
- 			'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus repudiandae, officiis deserunt hic natus explicabo maiores assumenda asperiores, nemo alias quisquam laborum eligendi amet id aliquam, culpa eum odio similique.',
+ 			'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.',
  			'images': [
  				'images/code.jpg',
 
@@ -102,16 +112,16 @@ var projects = { // projects object
  		}, 		{
  			'title': 'Project Example 2',
  			'dates': '2014-2015',
- 			'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quis earum quae eum est veniam, quisquam voluptas delectus laudantium? Illo accusantium vel nobis eveniet minima perspiciatis corporis aliquam, unde est.',
+ 			'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.',
  			'images': [
- 				'images/lap-top.jpg',
  				'images/code.jpg',
- 				'images/keyboard.jpg'
+ 				'images/keyboard.jpg',
+ 				'images/lap-top.jpg'
  			]
  		}, 		{
  			'title': 'Project Example 3',
  			'dates': '2010-2012',
- 			'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet nulla iusto, cum vitae, modi hic praesentium, error fugit ut quasi expedita, quia delectus eius excepturi? Vel at id tempore, consectetur.',
+ 			'description': 'Placeholder text applauded no discovery in newspaper allowance am northward. Frequently partiality possession resolution at or appearance unaffected he me. Engaged its was evident pleased husband.',
  			'images': [
  				'images/keyboard.jpg',
  				'images/code.jpg',
@@ -264,64 +274,64 @@ bio.FooterContacts = function() {
 bio.FooterContacts();
 
 // google charts - gauges
-      google.charts.load('current', {'packages':['gauge']});
-      google.charts.setOnLoadCallback(drawChart);
+google.charts.load('current', {'packages':['gauge']});
+google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Label', 'Value'],
-          ['HTML', 80],
-          ['CSS', 90],
-          ['JavaScript', 50],
-          ['DESIGN', 90]
+        	['Label', 'Value'],
+        	['HTML', 80],
+        	['CSS', 90],
+        	['JavaScript', 40],
+        	['DESIGN', 90]
         ]);
 
 		var lastScrollTop = 0;
+		var options;
 
 	    if($(window).width() < 400) { //checks width of browser and then runs code below
-	        var options = {
-	          width: 290, height: 100,
-	          greenFrom: 70, greenTo: 100,
-	          yellowFrom:60, yellowTo: 70,
-	          minorTicks: 0,
-	          animation:{
-	          duration: 500,
-	          easing: 'inAndOut'
-	          }
+	        options = {
+	        	width: 290, height: 100,
+	          	greenFrom: 70, greenTo: 100,
+	          	yellowFrom:60, yellowTo: 70,
+	          	minorTicks: 0,
+	          	animation:{
+	          	duration: 500,
+	          	easing: 'inAndOut'
+	          	}
 	        };
 	    } else {
-	        var options = {
-	          width: 380, height: 120,
-	          greenFrom: 70, greenTo: 100,
-	          yellowFrom:60, yellowTo: 70,
-	          minorTicks: 0,
-	          animation:{
-	          duration: 500,
-	          easing: 'inAndOut'
-	          }
+	        options = {
+	          	width: 380, height: 120,
+	          	greenFrom: 70, greenTo: 100,
+	          	yellowFrom:60, yellowTo: 70,
+	          	minorTicks: 0,
+	          	animation:{
+	          	duration: 500,
+	          	easing: 'inAndOut'
+	          	}
 	        };
-	    };
+	    }
 
         var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
 
         chart.draw(data, options);
 
         setInterval(function() {
-          data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
+          	data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+          	chart.draw(data, options);
         }, 500);
         setInterval(function() {
-          data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          chart.draw(data, options);
+          	data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+          	chart.draw(data, options);
         }, 600);
         setInterval(function() {
-          data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
+          	data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+          	chart.draw(data, options);
         }, 700);
         setInterval(function() {
-          data.setValue(3, 1, 60 + Math.round(20 * Math.random()));
-          chart.draw(data, options);
+          	data.setValue(3, 1, 60 + Math.round(20 * Math.random()));
+          	chart.draw(data, options);
         }, 800);
-      }
-
+    }
