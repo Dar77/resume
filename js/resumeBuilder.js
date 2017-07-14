@@ -1,13 +1,3 @@
-// Hello.
-//
-// This is JSHint, a tool that helps to detect errors and potential
-// problems in your JavaScript code.
-//
-// To start, simply enter some JavaScript anywhere on this page. Your
-// report will appear on the right side.
-//
-// Additionally, you can toggle specific options in the Configure
-// menu.
 /*
 resumeBuilder.js - resume project - Darren Ware
  */
@@ -277,61 +267,61 @@ bio.FooterContacts();
 google.charts.load('current', {'packages':['gauge']});
 google.charts.setOnLoadCallback(drawChart);
 
-    function drawChart() {
+function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-        	['Label', 'Value'],
-        	['HTML', 80],
-        	['CSS', 90],
-        	['JavaScript', 40],
-        	['DESIGN', 90]
-        ]);
+    var data = google.visualization.arrayToDataTable([
+    	['Label', 'Value'],
+    	['HTML', 80],
+    	['CSS', 90],
+    	['JavaScript', 40],
+    	['DESIGN', 90]
+    ]);
 
-		var lastScrollTop = 0;
-		var options;
+	var lastScrollTop = 0;
+	var options;
 
-	    if($(window).width() < 400) { //checks width of browser and then runs code below
-	        options = {
-	        	width: 290, height: 100,
-	          	greenFrom: 70, greenTo: 100,
-	          	yellowFrom:60, yellowTo: 70,
-	          	minorTicks: 0,
-	          	animation:{
-	          	duration: 500,
-	          	easing: 'inAndOut'
-	          	}
-	        };
-	    } else {
-	        options = {
-	          	width: 380, height: 120,
-	          	greenFrom: 70, greenTo: 100,
-	          	yellowFrom:60, yellowTo: 70,
-	          	minorTicks: 0,
-	          	animation:{
-	          	duration: 500,
-	          	easing: 'inAndOut'
-	          	}
-	        };
-	    }
-
-        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-        chart.draw(data, options);
-
-        setInterval(function() {
-          	data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
-          	chart.draw(data, options);
-        }, 500);
-        setInterval(function() {
-          	data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
-          	chart.draw(data, options);
-        }, 600);
-        setInterval(function() {
-          	data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
-          	chart.draw(data, options);
-        }, 700);
-        setInterval(function() {
-          	data.setValue(3, 1, 60 + Math.round(20 * Math.random()));
-          	chart.draw(data, options);
-        }, 800);
+    if($(window).width() < 400) { //checks width of browser and then runs code below
+        options = {
+        	width: 290, height: 100,
+          	greenFrom: 70, greenTo: 100,
+          	yellowFrom:60, yellowTo: 70,
+          	minorTicks: 0,
+          	animation:{
+          	duration: 500,
+          	easing: 'inAndOut'
+          	}
+        };
+    } else {
+        options = {
+          	width: 380, height: 120,
+          	greenFrom: 70, greenTo: 100,
+          	yellowFrom:60, yellowTo: 70,
+          	minorTicks: 0,
+          	animation:{
+          	duration: 500,
+          	easing: 'inAndOut'
+          	}
+        };
     }
+
+    var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+    chart.draw(data, options);
+
+    setInterval(function() {
+      	data.setValue(0, 1, 40 + Math.round(60 * Math.random()));
+      	chart.draw(data, options);
+    }, 500);
+    setInterval(function() {
+      	data.setValue(1, 1, 40 + Math.round(60 * Math.random()));
+      	chart.draw(data, options);
+    }, 600);
+    setInterval(function() {
+      	data.setValue(2, 1, 60 + Math.round(20 * Math.random()));
+      	chart.draw(data, options);
+    }, 700);
+    setInterval(function() {
+      	data.setValue(3, 1, 60 + Math.round(20 * Math.random()));
+      	chart.draw(data, options);
+    }, 800);
+}
