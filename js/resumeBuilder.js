@@ -128,8 +128,7 @@ bio.display = function() {
 	var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 	var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
 	formattedPic = formattedPic.replace('%alt%', bio.name); // adds alt text using bio name
-	$('#header').prepend(formattedRole);
-	$('#header').prepend(formattedName);
+	$('#header').prepend(formattedName, formattedRole);
 	$('#header-2').append(formattedPic);
 	$('#header-3').append(formattedWelcomeMsg);
 	// contacts section - bio
@@ -137,10 +136,7 @@ bio.display = function() {
 	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
 	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
 	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-	$('#topContacts').append(formattedMobile);
-	$('#topContacts').append(formattedEmail);
-	$('#topContacts').append(formattedGitHub);
-	$('#topContacts').append(formattedLocation);
+	$('#topContacts').append(formattedMobile, formattedEmail, formattedGitHub, formattedLocation); // string arguments together and add to page
 	// add skill from skills array
 	$('#header-4').append(HTMLskillsStart);
 		if (bio.skills.length > 0) {
@@ -149,6 +145,15 @@ bio.display = function() {
 		 	    $('#skills').append(formattedSkill);
 		}
 	}
+	// add contact information to footer
+    var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
+	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
+	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
+	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+	$('#footerContacts').append(formattedMobile, formattedEmail, formattedGitHub, formattedLocation);
+	// add social media icons
+	$('#footerContacts').before(HTMLsocialStart);
+	$('.icons-list').append(HTMLfaceBook, HTMLgooglePlus, HTMLgitHub, HTMLlinkedIn);
 };
 
 bio.display();
@@ -163,9 +168,7 @@ education.display = function() {
 		var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
 		var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
 		var formattedSchoolURL = HTMLschoolURL.replace('%data%', education.schools[i].url);
-		$('.education-entry:last').append(formattedNameDegree);
-		$('.education-entry:last').append(formattedSchoolDates);
-		$('.education-entry:last').append(formattedSchoolLocation);
+		$('.education-entry:last').append(formattedNameDegree, formattedSchoolDates, formattedSchoolLocation);
             //add major from majors array
 			if (education.schools[i].majors.length > 0) {
 				for ( var major = 0; major < education.schools[i].majors.length; major++) {
@@ -185,9 +188,7 @@ education.display = function() {
 				var formattedTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
 				var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[c].dates);
 				var formattedOnlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[c].url);
-				$('.education-entry:last').append(formattedTitleSchool);
-				$('.education-entry:last').append(formattedOnlineDates);
-				$('.education-entry:last').append(formattedOnlineURL);
+				$('.education-entry:last').append(formattedTitleSchool, formattedOnlineDates, formattedOnlineURL);
 		}
 	}
 };
@@ -204,10 +205,7 @@ work.display = function() {
 		var formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].dates);
 		var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location);
 		var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description);
-		$('.work-entry:last').append(formattedEmployerTitle);
-		$('.work-entry:last').append(formattedDates);
-		$('.work-entry:last').append(formattedLocation);
-		$('.work-entry:last').append(formattedDescription);
+		$('.work-entry:last').append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription);
  	}
 };
 
@@ -220,9 +218,7 @@ projects.display = function() {
 		var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
 		var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
 		var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
-		$('.project-entry:last').append(formattedProjectTitle);
-		$('.project-entry:last').append(formattedProjectDates);
-		$('.project-entry:last').append(formattedProjectDescription);
+		$('.project-entry:last').append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
             //add project images from images array
 			if (projects.projects[i].images.length > 0) {
 				for ( var pic = 0; pic < projects.projects[i].images.length; pic++) {
@@ -243,26 +239,6 @@ var loadMap = function() {
 
 loadMap();
 
-bio.FooterContacts = function() {
-	// add contact information to footer
-    var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
-	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
-	$('#footerContacts').append(formattedMobile);
-	$('#footerContacts').append(formattedEmail);
-	$('#footerContacts').append(formattedGitHub);
-	$('#footerContacts').append(formattedLocation);
-	// add social media icons
-	$('#footerContacts').before(HTMLsocialStart);
-	$('.icons-list').append(HTMLfaceBook);
-	$('.icons-list').append(HTMLgooglePlus);
-	$('.icons-list').append(HTMLgitHub);
-	$('.icons-list').append(HTMLlinkedIn);
-};
-
-bio.FooterContacts();
-
 // google charts - gauges
 google.charts.load('current', {'packages':['gauge']});
 google.charts.setOnLoadCallback(drawChart);
@@ -271,7 +247,7 @@ function drawChart() {
 
     var data = google.visualization.arrayToDataTable([
     	['Label', 'Value'],
-    	['HTML', 80],
+    	['HTML', 80], // bio.skills[0].toUppercase(), 80 - could use skills[] direct from object
     	['CSS', 90],
     	['JavaScript', 40],
     	['DESIGN', 90]
