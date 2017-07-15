@@ -146,10 +146,6 @@ bio.display = function() {
 		}
 	}
 	// add contact information to footer
-    var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-	var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-	var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
-	var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
 	$('#footerContacts').append(formattedMobile, formattedEmail, formattedGitHub, formattedLocation);
 	// add social media icons
 	$('#footerContacts').before(HTMLsocialStart);
