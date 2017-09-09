@@ -20,7 +20,7 @@ ___
 - **The solution must be capable of displaying any resume that provides the data in the given schema.**
 - **The solution must work for any number of items in arrays etc.**
 - **All resume sections are built using modular functions that can run in any order.**
-- **Code follows Udacity's style guide.**
+- **Code follows Udacity's [style guide](http://udacity.github.io/frontend-nanodegree-styleguide/).**
 - **Each object has a property named display which encapsulates a function that displays the object's properties in the resume.**
 - **Must include a Google map.**
 ___
@@ -28,7 +28,7 @@ ___
 
 ## Solution
 
-After constructing my objects and checking them with jsHint, I used javascript's **string.replace** method to manipulate the HTML code snippets stored in **helper.js**. The code was added to the resume using **Jquery's** append or prepend functions.
+After constructing my objects and checking them with **jsHint**, I used javascript's **string.replace** method to manipulate the HTML code snippets stored in **helper.js**. The code was added to the resume using **Jquery's** append or prepend functions.
 
 For the various arrays I used conditional statements to check for content and then used for loops to iterate over the content and add it to the resume. **Jquery's** selectors were used to grab the id to the various sections of the resume.
 
