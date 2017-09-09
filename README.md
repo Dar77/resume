@@ -7,7 +7,7 @@ For this project I needed to bulid a resume that is dynamically constructed from
 
 The HTML code needed to build the resume was stored in **helper.js** and the bulk of the work needed to build the resume was carried out in **resumeBuilder.js**. HTML code snippets needed to be manipulated with **Jquery** and then inserted into the resume in the appropriate locations.
 
-This is a project from Udacity's **Frontend Nanodegree** program.
+This is a project from Udacity's **Frontend Nanodegree** [program](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001).
 ___
 
 ### Resume
