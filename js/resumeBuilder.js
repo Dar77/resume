@@ -138,7 +138,12 @@ var octopus = function() {
 	getEducation = function() { // return education object
 		return model.education;
 	},
-
+	getWork = function() {
+		return model.work;
+	},
+	getProjects = function() {
+		return model.projects;
+	}
 
 }
 
