@@ -125,51 +125,51 @@ var model = {
 };
 
 // octopus ===========================================================================================================
-var octopus = function() {
+var octopus = {
 	init: function() { // render the resume
 		viewBio.bioRender();
 		viewEducation.educationRender();
 		viewWork.workRender();
 		viewProjects.projectsRender();
 	},
-	getBio = function() { // return bio object
+	getBio: function() { // return bio object
 		return model.bio;
 	},
-	getEducation = function() { // return education object
+	getEducation: function() { // return education object
 		return model.education;
 	},
-	getWork = function() {
+	getWork: function() { // return work object
 		return model.work;
 	},
-	getProjects = function() {
+	getProjects: function() { // return projects object
 		return model.projects;
 	}
-
-}
+};
 
 // view ==============================================================================================================
 var viewBio = {
 	bioRender: function() {
 	    // header section - bio
-		var formattedName = HTMLheaderName.replace('%data%', bio.name);
-		var formattedRole = HTMLheaderRole.replace('%data%', bio.role);
-		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-		var formattedPic = HTMLbioPic.replace('%data%', bio.biopic);
-		formattedPic = formattedPic.replace('%alt%', bio.name); // adds alt text using bio name
+	    var bioData = octopus.getBio(); // get bio data
+		var formattedName = HTMLheaderName.replace('%data%', bioData.name);
+		var formattedRole = HTMLheaderRole.replace('%data%', bioData.role);
+		var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bioData.welcomeMessage);
+		var formattedPic = HTMLbioPic.replace('%data%', bioData.biopic);
+		formattedPic = formattedPic.replace('%alt%', bioData.name); // adds alt text using bio name
 		$('#header').prepend(formattedName, formattedRole);
 		$('#header-2').append(formattedPic);
 		$('#header-3').append(formattedWelcomeMsg);
 		// contacts section - bio
-		var formattedMobile = HTMLmobile.replace('%data%', bio.contacts.mobile);
-		var formattedEmail = HTMLemail.replace('%data%', bio.contacts.email);
-		var formattedGitHub = HTMLgithub.replace('%data%', bio.contacts.github);
-		var formattedLocation = HTMLlocation.replace('%data%', bio.contacts.location);
+		var formattedMobile = HTMLmobile.replace('%data%', bioData.contacts.mobile);
+		var formattedEmail = HTMLemail.replace('%data%', bioData.contacts.email);
+		var formattedGitHub = HTMLgithub.replace('%data%', bioData.contacts.github);
+		var formattedLocation = HTMLlocation.replace('%data%', bioData.contacts.location);
 		$('#topContacts').append(formattedMobile, formattedEmail, formattedGitHub, formattedLocation); // string arguments together and add to page
 		// add skill from skills array
 		$('#header-4').append(HTMLskillsStart);
-			if (bio.skills.length > 0) {
-				for ( var skill = 0; skill < bio.skills.length; skill++) {
-					var formattedSkill = HTMLskills.replace('%data%', bio.skills[skill]);
+			if (bioData.skills.length > 0) {
+				for ( var skill = 0; skill < bioData.skills.length; skill++) {
+					var formattedSkill = HTMLskills.replace('%data%', bioData.skills[skill]);
 			 	    $('#skills').append(formattedSkill);
 			}
 		}
@@ -178,81 +178,84 @@ var viewBio = {
 		// add social media icons
 		$('#footerContacts').before(HTMLsocialStart);
 		$('.icons-list').append(HTMLfaceBook, HTMLgooglePlus, HTMLgitHub, HTMLlinkedIn);
-	};
+	}
 };
 
-var viewEducation ={
+var viewEducation = {
 	educationRender: function() {
-		for (var i = 0; i < education.schools.length; i++) {
+		var educationData = octopus.getEducation(); //get education data
+		for (var i = 0; i < educationData.schools.length; i++) {
 			// add school from schools array
 			$('#education').append(HTMLschoolStart);
-			var formattedSchoolName = HTMLschoolName.replace('%data%', education.schools[i].name);
-			var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', education.schools[i].degree);
+			var formattedSchoolName = HTMLschoolName.replace('%data%', educationData.schools[i].name);
+			var formattedSchoolDegree = HTMLschoolDegree.replace('%data%', educationData.schools[i].degree);
 			var formattedNameDegree = formattedSchoolName + formattedSchoolDegree;
-			var formattedSchoolDates = HTMLschoolDates.replace('%data%', education.schools[i].dates);
-			var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', education.schools[i].location);
-			var formattedSchoolURL = HTMLschoolURL.replace('%data%', education.schools[i].url);
+			var formattedSchoolDates = HTMLschoolDates.replace('%data%', educationData.schools[i].dates);
+			var formattedSchoolLocation = HTMLschoolLocation.replace('%data%', educationData.schools[i].location);
+			var formattedSchoolURL = HTMLschoolURL.replace('%data%', educationData.schools[i].url);
 			$('.education-entry:last').append(formattedNameDegree, formattedSchoolDates, formattedSchoolLocation);
 	            //add major from majors array
-				if (education.schools[i].majors.length > 0) {
-					for ( var major = 0; major < education.schools[i].majors.length; major++) {
-						var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', education.schools[i].majors[major]);
+				if (educationData.schools[i].majors.length > 0) {
+					for ( var major = 0; major < educationData.schools[i].majors.length; major++) {
+						var formattedSchoolMajor = HTMLschoolMajor.replace('%data%', educationData.schools[i].majors[major]);
 						$('.education-entry:last').append(formattedSchoolMajor);
 			    }
 			$('.education-entry:last').append(formattedSchoolURL);
 			}
 		}
-		if (education.onlineCourses.length > 0) {//TODO
+		if (educationData.onlineCourses.length > 0) {
 			//add online courses
 			$('#education').append(HTMLonlineClasses);
-				for (var c = 0; c < education.onlineCourses.length; c++) {
+				for (var c = 0; c < educationData.onlineCourses.length; c++) {
 					$('#education').append(HTMLonlineStart);
-					var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', education.onlineCourses[c].title);
-					var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', education.onlineCourses[c].school);
+					var formattedOnlineTitle = HTMLonlineTitle.replace('%data%', educationData.onlineCourses[c].title);
+					var formattedOnlineSchool = HTMLonlineSchool.replace('%data%', educationData.onlineCourses[c].school);
 					var formattedTitleSchool = formattedOnlineTitle + formattedOnlineSchool;
-					var formattedOnlineDates = HTMLonlineDates.replace('%data%', education.onlineCourses[c].dates);
-					var formattedOnlineURL = HTMLonlineURL.replace('%data%', education.onlineCourses[c].url);
+					var formattedOnlineDates = HTMLonlineDates.replace('%data%', educationData.onlineCourses[c].dates);
+					var formattedOnlineURL = HTMLonlineURL.replace('%data%', educationData.onlineCourses[c].url);
 					$('.education-entry:last').append(formattedTitleSchool, formattedOnlineDates, formattedOnlineURL);
 			}
 		}
-	};
+	}
 };
 
 var viewWork = {
 	workRender: function() {
-	    for(var i = 0; i < work.jobs.length; i++) {
+		var workData = octopus.getWork(); // get work data
+	    for(var i = 0; i < workData.jobs.length; i++) {
 	        // add job from jobs array
 			$('#workExperience').append(HTMLworkStart);
-			var formattedEmployer = HTMLworkEmployer.replace('%data%', work.jobs[i].employer);
-			var formattedTitle = HTMLworkTitle.replace('%data%', work.jobs[i].title);
+			var formattedEmployer = HTMLworkEmployer.replace('%data%', workData.jobs[i].employer);
+			var formattedTitle = HTMLworkTitle.replace('%data%', workData.jobs[i].title);
 			var formattedEmployerTitle = formattedEmployer + formattedTitle;
-			var formattedDates = HTMLworkDates.replace('%data%', work.jobs[i].dates);
-			var formattedLocation = HTMLworkLocation.replace('%data%', work.jobs[i].location);
-			var formattedDescription = HTMLworkDescription.replace('%data%', work.jobs[i].description);
+			var formattedDates = HTMLworkDates.replace('%data%', workData.jobs[i].dates);
+			var formattedLocation = HTMLworkLocation.replace('%data%', workData.jobs[i].location);
+			var formattedDescription = HTMLworkDescription.replace('%data%', workData.jobs[i].description);
 			$('.work-entry:last').append(formattedEmployerTitle, formattedDates, formattedLocation, formattedDescription);
 	 	}
-	};
+	}
 };
 
 var viewProjects = {
 	projectsRender: function() {
-		for (var i = 0; i < projects.projects.length; i++) {
+		var projectsData = octopus.getProjects(); // get projects data
+		for (var i = 0; i < projectsData.projects.length; i++) {
 			// add project from projects array
 			$('#projects').append(HTMLprojectStart);
-			var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projects.projects[i].title);
-			var formattedProjectDates = HTMLprojectDates.replace('%data%', projects.projects[i].dates);
-			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+			var formattedProjectTitle = HTMLprojectTitle.replace('%data%', projectsData.projects[i].title);
+			var formattedProjectDates = HTMLprojectDates.replace('%data%', projectsData.projects[i].dates);
+			var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projectsData.projects[i].description);
 			$('.project-entry:last').append(formattedProjectTitle, formattedProjectDates, formattedProjectDescription);
 	            //add project images from images array
-				if (projects.projects[i].images.length > 0) {
-					for ( var pic = 0; pic < projects.projects[i].images.length; pic++) {
-					var formattedProjectImages = HTMLprojectImage.replace('%data%', projects.projects[i].images[pic]); //requires both indexes [i] and [pic] - array in array
-					formattedProjectImages = formattedProjectImages.replace('%alt%', projects.projects[i].title); // add alt text to images using project title
+				if (projectsData.projects[i].images.length > 0) {
+					for ( var pic = 0; pic < projectsData.projects[i].images.length; pic++) {
+					var formattedProjectImages = HTMLprojectImage.replace('%data%', projectsData.projects[i].images[pic]); //requires both indexes [i] and [pic] - array in array
+					formattedProjectImages = formattedProjectImages.replace('%alt%', projectsData.projects[i].title); // add alt text to images using project title
 					$('.project-entry:last').append(formattedProjectImages);
 			    }
 			}
 	  	}
-	};
+	}
 };
 
 octopus.init();
