@@ -15,6 +15,8 @@ ___
 Visit: [Resume Project](http://www.it48.xyz/resume)
 
 ![Resume project screen shot](images/resume.jpg)
+
+- Please note this is not my actual resume and contains mostly fake info!
 ___
 
 
