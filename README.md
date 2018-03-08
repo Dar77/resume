@@ -11,6 +11,9 @@ This is a project from Udacity's **Frontend Nanodegree** [program](https://www.u
 ___
 
 ### Resume
+
+Visit: [Resume Project](http://www.it48.xyz/resume)
+
 ![Resume project screen shot](images/resume.jpg)
 ___
 
