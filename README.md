@@ -3,7 +3,7 @@ ___
 
 # Resume Project
 
-For this project I needed to bulid a resume that is dynamically constructed from javascript objects. The resume could contain real or fake data, but the data in the objects had to follow the provided schema exactly.
+For this project I needed to build a resume that is dynamically constructed from javascript objects. The resume could contain real or fake data, but the data in the objects had to follow the provided schema exactly.
 
 The HTML code needed to build the resume was stored in **helper.js** and the bulk of the work needed to build the resume was carried out in **resumeBuilder.js**. HTML code snippets needed to be manipulated with **Jquery** and then inserted into the resume in the appropriate locations.
 
